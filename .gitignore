@@ -1,0 +1,45 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+*.env
+*.venv
+
+
+uploaded_videos/
+
+
+
+# Ignore system files
+.VirtualBox/
+.android/
+.bash_history
+.cache/
+.config/
+.docker/
+.eclipse/
+.gitconfig
+.gradle/
+.idlerc/
+.keras/
+.m2/
+.vscode/
+AppData/
+Contacts/
+Desktop/
+Documents/
+Downloads/
+Favorites/
+Music/
+Pictures/
+Saved Games/
+Searches/
+Videos/
+VirtualBox VMs/
+logs/
+node_modules/
+*.log
+*.class

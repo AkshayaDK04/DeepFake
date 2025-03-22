@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Examples</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+    background-color: #104467; /* Deep blue background */
+    color: #fff; /* White text for contrast */
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #083759;
+    color: #fff;
+}
+
+.navbar {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00bcd4;
+        }
+
+#main-content {
+    padding: 20px;
+}
+
+.deepfake-example {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.deepfake-example img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.deepfake-example p {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #083759;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Deepfake Examples</h1>
+    </header>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-camera"></i> Media Fake Detection
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/deepfake_awareness"><i class="fas fa-info-circle"></i> Deepfake Awareness</a></li>
+                <li class="nav-item"><a class="nav-link" href="/deepfake_examples"><i class="fas fa-images"></i> Deepfake Examples</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tutorial_on_spotting_deepfakes"><i class="fas fa-book"></i> Tutorials</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community_reports"><i class="fas fa-flag"></i> Community Reports</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="main-content" class="container">
+        <h2>Examples of Deepfake Content</h2>
+       
+
+        <div class="deepfake-example">
+            <img src="/static/ex2.jpeg" alt="Deepfake Example 1">
+            <p>Deep Faked Image through face swap technology</p>
+        </div>
+
+        <div class="deepfake-example">
+            <img src="/static/ex1.jpeg" alt="Deepfake Example 2">
+            <p>Extraction of facial features and rebuilding</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Media Fake Detection</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

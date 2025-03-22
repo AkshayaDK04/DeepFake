@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Fake Detection</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #0c2d48;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00bcd4;
+        }
+
+        .jumbotron {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,188,212,0.7));
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .feature-box:hover {
+            background: rgba(0, 188, 212, 0.2);
+            transform: scale(1.05);
+        }
+
+        .feature-box h2 {
+            font-size: 1.8rem;
+            margin-top: 10px;
+        }
+
+        .upload-btn {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: #00bcd4;
+            color: #fff;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .upload-btn:hover {
+            background: #007b8f;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .jumbotron h1 {
+                font-size: 2rem;
+            }
+
+            .feature-box h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-camera"></i> Media Fake Detection
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/deepfake_awareness"><i class="fas fa-info-circle"></i> Deepfake Awareness</a></li>
+                <li class="nav-item"><a class="nav-link" href="/deepfake_examples"><i class="fas fa-images"></i> Deepfake Examples</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tutorial_on_spotting_deepfakes"><i class="fas fa-book"></i> Tutorials</a></li>
+                <li class="nav-item"><a class="nav-link" href="/community_reports"><i class="fas fa-flag"></i> Community Reports</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1><i class="fas fa-camera"></i> Welcome to Media Fake Detection</h1>
+            <p>Upload an image or video to verify its authenticity with our AI-powered detection system.</p>
+        </div>
+
+        <div class="row">
+            <!-- Image Checker -->
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <i class="fas fa-search fa-3x"></i>
+                    <h2>Image Authenticity Checker</h2>
+                    <p>Upload an image to check for potential deepfakes.</p>
+                    <a href="/upload_img" class="upload-btn">Check Image</a>
+
+                    {% if image_result %}
+                        <div class="alert alert-info mt-3">
+                            <strong>Result:</strong> {{ image_result }}
+                        </div>
+                        <img src="{{ url_for('static', filename='images/' ~ image_filename) }}" class="img-fluid mt-3 rounded">
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Video Checker -->
+            <div class="col-md-6">
+                <div class="feature-box">
+                    <i class="fas fa-video fa-3x"></i>
+                    <h2>Video Deepfake Detector</h2>
+                    <p>Upload a video and detect deepfake manipulations.</p>
+                    <a href="/upload_vid" class="upload-btn">Check Video</a>
+
+                    {% if video_result %}
+                        <div class="alert alert-info mt-3">
+                            <strong>Result:</strong> {{ video_result }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Media Fake Detection | AI-Powered Detection</p>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
